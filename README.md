@@ -18,7 +18,7 @@
     </thead>
     <tbody>
       <tr>
-        <td>Ephemeral state: Containers are designed for stateless applications with data often lost after stopping.</td>
+        <td><strong>Ephemeral state:</strong>strong> Containers are designed for stateless applications with data often lost after stopping.</td>
         <td>Long-lived: Manages stateful applications, ensuring persistence and handling disruptions.</td>
       </tr>
       <tr>

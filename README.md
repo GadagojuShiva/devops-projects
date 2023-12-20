@@ -9,64 +9,32 @@
 # Differences between Docker and Kubernetes
 
 <!-- Docker vs Kubernetes Table -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    th, td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: left;
-    }
-
-    /* Light background color for Docker header cell */
-    th:first-child {
-      background-color: #f2f2f2;
-    }
-
-    /* Light background color for Kubernetes header cell */
-    th:nth-child(2) {
-      background-color: #f2f2f2;
-    }
-  </style>
-</head>
-<body>
-<table>
-  <thead>
-    <tr>
-      <th>Docker</th>
-      <th>Kubernetes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Ephemeral state: Containers are designed for stateless applications with data often lost after stopping.</td>
-      <td>Long-lived: Manages stateful applications, ensuring persistence and handling disruptions.</td>
-    </tr>
-    <tr>
-      <td>No autoscaling: Requires manual scaling based on demand.</td>
-      <td>Autoscaling: Provides automatic horizontal scaling based on metrics like CPU utilization.</td>
-    </tr>
-    <tr>
-      <td>No autohealing: Lacks built-in mechanisms for automatic recovery from failures.</td>
-      <td>Autohealing: Automatically detects and recovers from container or node failures.</td>
-    </tr>
-    <tr>
-      <td>No enterprise support: Limited official enterprise-grade support.</td>
-      <td>Enterprise support: Backed by vendors, offers strong enterprise-grade support with SLAs.</td>
-    </tr>
-  </tbody>
-</table>
-
-</body>
-</html>
+ <table style="border-collapse: collapse; width: 100%;">
+    <thead>
+      <tr>
+        <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;">Docker</th>
+        <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;">Kubernetes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Ephemeral state: Containers are designed for stateless applications with data often lost after stopping.</td>
+        <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Long-lived: Manages stateful applications, ensuring persistence and handling disruptions.</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">No autoscaling: Requires manual scaling based on demand.</td>
+        <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Autoscaling: Provides automatic horizontal scaling based on metrics like CPU utilization.</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">No autohealing: Lacks built-in mechanisms for automatic recovery from failures.</td>
+        <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Autohealing: Automatically detects and recovers from container or node failures.</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">No enterprise support: Limited official enterprise-grade support.</td>
+        <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Enterprise support: Backed by vendors, offers strong enterprise-grade support with SLAs.</td>
+      </tr>
+    </tbody>
+  </table>
 
 # How Kubernetes Solves Docker Challenges
 

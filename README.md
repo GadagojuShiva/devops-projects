@@ -18,20 +18,20 @@
     </thead>
     <tbody>
       <tr>
-        <td><strong>Ephemeral state:</strong>strong> Containers are designed for stateless applications with data often lost after stopping.</td>
-        <td>Long-lived: Manages stateful applications, ensuring persistence and handling disruptions.</td>
+        <td><strong>Ephemeral state:</strong> Containers are designed for stateless applications with data often lost after stopping.</td>
+        <td><strong>Long-lived:</strong> Manages stateful applications, ensuring persistence and handling disruptions.</td>
       </tr>
       <tr>
-        <td>No autoscaling: Requires manual scaling based on demand.</td>
-        <td>Autoscaling: Provides automatic horizontal scaling based on metrics like CPU utilization.</td>
+        <td><strong>No autoscaling:</strong> Requires manual scaling based on demand.</td>
+        <td><strong>Autoscaling:</strong> Provides automatic horizontal scaling based on metrics like CPU utilization.</td>
       </tr>
       <tr>
-        <td>No autohealing: Lacks built-in mechanisms for automatic recovery from failures.</td>
-        <td>Autohealing: Automatically detects and recovers from container or node failures.</td>
+        <td><strong>No autohealing:</strong> Lacks built-in mechanisms for automatic recovery from failures.</td>
+        <td><strong>Autohealing:</strong> Automatically detects and recovers from container or node failures.</td>
       </tr>
       <tr>
-        <td>No enterprise support: Limited official enterprise-grade support.</td>
-        <td>Enterprise support: Backed by vendors, offers strong enterprise-grade support with SLAs.</td>
+        <td><strong>No enterprise support:</strong> Limited official enterprise-grade support.</td>
+        <td><strong>Enterprise support:</strong> Backed by vendors, offers strong enterprise-grade support with SLAs.</td>
       </tr>
     </tbody>
   </table>

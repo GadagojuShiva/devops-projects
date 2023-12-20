@@ -38,7 +38,6 @@
   </style>
 </head>
 <body>
-
 <table>
   <thead>
     <tr>
@@ -68,7 +67,6 @@
 
 </body>
 </html>
-
 
 # How Kubernetes Solves Docker Challenges
 

@@ -58,7 +58,7 @@
 
 # Kubernetes Architecture Components
 
-Lets Take an example of two node 1. Maste Node(Control Plan), 2. Worker Node(Data Plan)
+Lets Take an example of two nodes Maste Node(Control Plan), Worker Node(Data Plan)
 
 ## Master Node (Control Plane) Components:
 

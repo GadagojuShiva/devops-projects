@@ -9,29 +9,29 @@
 # Differences between Docker and Kubernetes
 
 <!-- Docker vs Kubernetes Table -->
- <table style="border-collapse: collapse; width: 100%;">
+ <table>
     <thead>
       <tr>
-        <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;">Docker</th>
-        <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;">Kubernetes</th>
+        <th style="background-color: #f2f2f2;">Docker</th>
+        <th style="background-color: #f2f2f2;">Kubernetes</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Ephemeral state: Containers are designed for stateless applications with data often lost after stopping.</td>
-        <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Long-lived: Manages stateful applications, ensuring persistence and handling disruptions.</td>
+        <td>Ephemeral state: Containers are designed for stateless applications with data often lost after stopping.</td>
+        <td>Long-lived: Manages stateful applications, ensuring persistence and handling disruptions.</td>
       </tr>
       <tr>
-        <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">No autoscaling: Requires manual scaling based on demand.</td>
-        <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Autoscaling: Provides automatic horizontal scaling based on metrics like CPU utilization.</td>
+        <td>No autoscaling: Requires manual scaling based on demand.</td>
+        <td>Autoscaling: Provides automatic horizontal scaling based on metrics like CPU utilization.</td>
       </tr>
       <tr>
-        <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">No autohealing: Lacks built-in mechanisms for automatic recovery from failures.</td>
-        <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Autohealing: Automatically detects and recovers from container or node failures.</td>
+        <td>No autohealing: Lacks built-in mechanisms for automatic recovery from failures.</td>
+        <td>Autohealing: Automatically detects and recovers from container or node failures.</td>
       </tr>
       <tr>
-        <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">No enterprise support: Limited official enterprise-grade support.</td>
-        <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">Enterprise support: Backed by vendors, offers strong enterprise-grade support with SLAs.</td>
+        <td>No enterprise support: Limited official enterprise-grade support.</td>
+        <td>Enterprise support: Backed by vendors, offers strong enterprise-grade support with SLAs.</td>
       </tr>
     </tbody>
   </table>

@@ -89,4 +89,4 @@ Lets Take an example of two nodes Maste Node(Control Plan), Worker Node(Data Pla
    - Responsible for running containers. Kubernetes supports multiple container runtimes, such as Docker, containerd, and others.
 
 # Kubernetes Architecture
- - Coming Up...............
+![Alt Text](https://github.com/GadagojuShiva/kubernetes-examples/blob/main/Kubernetes.jpg)

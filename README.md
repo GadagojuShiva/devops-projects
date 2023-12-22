@@ -102,23 +102,6 @@ Lets Take an example of two nodes Maste Node(Control Plan), Worker Node(Data Pla
 
 # Difference Between Kubernetes and EKS
 
-<style>
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-
-    th, td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: left;
-    }
-
-    th {
-      background-color: #f2f2f2;
-    }
-  </style>
 <table>
     <tr>
       <th>Kubernetes</th>
@@ -247,7 +230,7 @@ kubectl apply -f deployment.yml
 1. <strong>ClusterIP:</strong> Internal communication within the cluster.
 2. <strong>NodePort:</strong> Accessible within your organization, and potentially externally.
 3. <strong>LoadBalancer:</strong> Exposes the service to the external world, suitable for public-facing services.
-
+---------------------------------
 # Kubernetes Interview Questions and Answers
 
 ## 1. What is the difference between Docker and Kubernetes?

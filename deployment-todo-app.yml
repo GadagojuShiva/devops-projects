@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-application
+  labels:
+    app: todo-application
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: todo-application
+  template:
+    metadata:
+      labels:
+        app: todo-application
+    spec:
+      containers:
+      - name: todo-application
+        image: gadagojushiva/todo:latest
+        ports:
+        - containerPort: 8000
+

@@ -230,6 +230,33 @@ kubectl apply -f deployment.yml
 1. <strong>ClusterIP:</strong> Internal communication within the cluster.
 2. <strong>NodePort:</strong> Accessible within your organization, and potentially externally.
 3. <strong>LoadBalancer:</strong> Exposes the service to the external world, suitable for public-facing services.
+  
+# Example on Node Port:
+- **Example of Service.yml file: [Link to service.yml](service.yml)**
+- Note:<span style="color: #FF9800;"> We Cannot do loadBalancing or Exposing application to external world on Minikube Because Minikube is a tool designed to run Kubernetes clusters locally for development and testing purposes. It provides a lightweight and easy-to-set-up environment to simulate a Kubernetes cluster on a single machine. However, there are certain limitations in Minikube that make it less suitable for certain production-like scenarios, such as load balancing and exposing applications to the external world in the same way you would in a production environment</span>
+- **ClusterIP:** Default Service, This represents the default service type in Kubernetes.
+
+# Ingress
+
+- An Ingress is a Kubernetes object that defines routing rules, facilitating the management of external access to services within a cluster
+- In Kubernetes, without using Ingress, the default load balancing mechanism is <strong>round-robin</strong>, where incoming requests are evenly distributed among the available pods. However, for more advanced features and routing capabilities, Ingress can be employed with specific ingress controllers.
+- <strong>Motivation for Ingress:</strong>
+  - <strong>Problem-1</strong>:Lack of Advanced Features (Round Robin Mechanics) 
+  Prior to Kubernetes, many companies utilized virtual machines (VMs) with various load balancers (e.g., Nginx, F5), offering features like <strong>sticky sessions</strong>, <strong>path-based routing</strong>, <strong>domain-based routing</strong>, <strong>IP whitelisting</strong>, <strong>blacklisting</strong>, and more. However, when transitioning to Kubernetes, some of these advanced features were initially missing. While Kubernetes provides options like <strong>load balancing</strong> and <strong>NodePort</strong> for service exposure, features such as sticky sessions and complex routing were not readily available.
+- <strong>Problem-2</strong>: Cost
+  - When utilizing a load balancing service in Kubernetes, the cloud provider generates an elastic IP, leading to increased costs.
+
+- <strong>To address this gap</strong>, 
+  - Kubernetes introduced the Ingress concept. Instead of building all these features natively into Kubernetes, it encourages users to create Ingress resources. Meanwhile, load balancing companies developed Ingress controllers that integrate with Kubernetes. Users can then select an appropriate Ingress controller, deploy it in their Kubernetes cluster, and create Ingress resources to define specific requirements such as routing rules, thereby solving the identified problem.
+  
+- [x] <span style="color: #FF0000;">You can find the **Example of ingress.yml file: [Link to ingress.yml](ingress.yml)**</span>
+
+- ```bash
+  # Create Ingress resource from ingress.yml
+    kubectl apply -f ingress.yml
+
+    # Check the status of Ingress resources
+    kubectl get ingress 
 ---------------------------------
 # Kubernetes Interview Questions and Answers
 

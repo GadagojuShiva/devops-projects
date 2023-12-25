@@ -243,7 +243,7 @@ kubectl apply -f deployment.yml
 - <strong>Motivation for Ingress:</strong>
   - <strong>Problem-1</strong>:Lack of Advanced Features (Round Robin Mechanics) 
   Prior to Kubernetes, many companies utilized virtual machines (VMs) with various load balancers (e.g., Nginx, F5), offering features like <strong>sticky sessions</strong>, <strong>path-based routing</strong>, <strong>domain-based routing</strong>, <strong>IP whitelisting</strong>, <strong>blacklisting</strong>, and more. However, when transitioning to Kubernetes, some of these advanced features were initially missing. While Kubernetes provides options like <strong>load balancing</strong> and <strong>NodePort</strong> for service exposure, features such as sticky sessions and complex routing were not readily available.
-- <strong>Problem-2</strong>: Cost
+  - <strong>Problem-2</strong>: Cost
   - When utilizing a load balancing service in Kubernetes, the cloud provider generates an elastic IP, leading to increased costs.
 
 - <strong>To address this gap</strong>, 

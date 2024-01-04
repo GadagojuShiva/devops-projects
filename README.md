@@ -278,7 +278,7 @@ kubectl apply -f deployment.yml
 **SSL Bridging**
   - SSL bridging is a process where incoming encrypted (SSL/TLS) traffic is decrypted at a load balancer or a similar device. The load balancer inspects the decrypted traffic for security purposes, and then re-encrypts it before forwarding to the backend servers. This allows the load balancer to perform security checks on the traffic without burdening the backend servers with the task of SSL/TLS encryption and decryption.
   <!-- Image -->
-![Alt Text](https://github.com/GadagojuShiva/kubernetes-examples/blob/main/SSL-Bridging.jpg)
+![Alt Text](https://github.com/GadagojuShiva/kubernetes-examples/blob/main/SSL-Bridging-updated.jpg)
 
 # Introduction to Kubernetes RBAC(Role based action control)
 

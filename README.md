@@ -251,13 +251,141 @@ kubectl apply -f deployment.yml
   
 - [x] <span style="color: #FF0000;">You can find the **Example of ingress.yml file: [Link to ingress.yml](ingress.yml)**</span>
 
-- ```bash
+ ```
   # Create Ingress resource from ingress.yml
     kubectl apply -f ingress.yml
 
     # Check the status of Ingress resources
     kubectl get ingress 
----------------------------------
+  ```
+
+# SSL/TLS termination strategies:
+**Here are the main strategies:**
+  - SSL PassThrough
+  - SSL Offloading
+  - SSL Bridging
+
+**SSL PassThrough**
+- ‘SSL passthrough’ passes encrypted HTTPS traffics directly to the backend servers without decrypting the traffics on the load balancer. So any nodescan’t read the contents in the traffic and pass through them all the way to the destination.
+    <!-- Image -->
+![Alt Text](https://github.com/GadagojuShiva/kubernetes-examples/blob/main/SSL-Passthrough.jpg)
+
+**SSL Offloading**
+  - SSL termination (a.c.a. SSL Offloading) decrypts all HTTPS traffics when it arrives at the load balancer, and the data is sent to the destination server as plain HTTP traffic.
+    <!-- Image -->
+![Alt Text](https://github.com/GadagojuShiva/kubernetes-examples/blob/main/SSL-Offloading.jpg)
+
+**SSL Bridging**
+  - SSL bridging is a process where incoming encrypted (SSL/TLS) traffic is decrypted at a load balancer or a similar device. The load balancer inspects the decrypted traffic for security purposes, and then re-encrypts it before forwarding to the backend servers. This allows the load balancer to perform security checks on the traffic without burdening the backend servers with the task of SSL/TLS encryption and decryption.
+  <!-- Image -->
+![Alt Text](https://github.com/GadagojuShiva/kubernetes-examples/blob/main/SSL-Bridging.jpg)
+
+# Introduction to Kubernetes RBAC(Role based action control)
+
+- Kubernetes Role-Based Access Control (RBAC) is a security feature that controls access to Kubernetes resources based on a user's role. It's a type of identity and access management (IAM) in AWS.
+- **Example :**
+  - Okay, imagine Kubernetes is like a big shared office space, and different teams work in different rooms. RBAC, or Role-Based Access Control, is like giving everyone the right keys to the right rooms and saying what they can do there.
+  - **Role:** (Giving permissions to act on a work) A 'Role' is like a specific job. Let's say we have a job called 'Pod Viewer,' which means you can only look at and get information about pods.
+  - **Role Binding:** (attacting the role to the user)'Role Binding' is like giving that job to a person. If we give the 'Pod Viewer' job to Alice, it means she can only look at and get info about pods.
+    
+  - So, in Kubernetes, we create a 'Pod Viewer' job (Role) and then give that job to specific people (Role Binding). This way, each person can only do what their job allows, making sure they don't mess with things they shouldn't. It's like making sure everyone has the right keys to the right rooms in our shared office space.
+
+-  In Kubernetes, creating users is not like how we do it on regular systems like Linux. Instead of using commands to add users, Kubernetes lets external services handle user management. For example, many apps now allow you to log in with your Google or Instagram account. In this case, Kubernetes relies on these external services for user information. So, making users in Kubernetes means connecting to these outside sources for user details, not using the usual user creation commands.
+
+# Custom Resource Definition (CRD):
+
+- **Purpose**: Enhancing Kubernetes with additional features that are not present in the core Kubernetes API.
+- **Example Use Case:** If you need an advanced security feature, you might create a Custom Resource Definition for a custom security policy.
+- **Components:**
+  - **CRD:** Custom Resource Definition is like a blueprint. It defines a new resource type along with its properties, similar to how a Deployment resource is defined in a YAML file.
+  - **CR:** Custom Resource is an instance of the custom resource type defined by a CRD. It represents the actual object you want to create or manage, like an instance of your advanced security policy.
+  - **Custom Controllers:** These are controllers created to watch and manage Custom Resources. They define the behavior and actions associated with your custom resource type.
+
+![Alt Text](https://github.com/GadagojuShiva/kubernetes-examples/blob/main/flow-of-custom-resources.jpg)
+
+- **Example Explanation:**
+
+  - Imagine you want to manage a specialized security policy in your Kubernetes cluster.
+  - You create a Custom Resource Definition (CRD) that defines what this security policy should look like and what properties it should have.
+  - Users can then create instances of this security policy using Custom Resources (CR). These instances conform to the blueprint laid out by the CRD.
+  - Custom Controllers watch for these custom resources. For instance, you might have a "SecurityPolicyController" specifically built to handle the lifecycle of your custom security policies.
+  - When a user creates or updates a custom resource, the associated custom controller takes action. It could enforce security policies, update configurations, or trigger other actions based on the defined behavior.
+
+- **Analogy:**
+
+  - Think of a CRD as the form you fill out to request a new service (e.g., advanced security).
+  - The CR is the actual form you submit, specifying the details of the service you want.
+  - Custom Controllers are like the service providers who process your form, ensuring that the requested service is implemented and maintained according to your specifications.
+  - This mechanism provides extensibility to Kubernetes, allowing users to define and manage custom resources beyond what is provided by default in Kubernetes.
+     
+# ConfigMaps and Secrets in kubernetes
+
+- **ConfigMaps:**
+  - ConfigMaps are used to store non-sensitive configuration data in key-value pairs, which can be consumed by Pods and other resources in a Kubernetes cluster.
+- **Example**
+  - Imagine you have a web application that connects to a MySQL database. The database connection details, including the host, port, username, and password, are essential for the application to function. Instead of hardcoding these details into the application code or Docker image, you decide to use a ConfigMap to manage the configuration separately.
+  
+- **Secrets:**
+  -  Secrets are used to separate sensitive data from application code and configuration, ensuring a more secure handling of sensitive information within the cluster and this are encrypted with base64-encoded
+- **Example:**
+  - Passwords,bd details
+
+# Differences between ConfigMap and Secrets
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Secrets</th>
+      <th>ConfigMaps</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Purpose</strong></td>
+      <td>Securely store sensitive data</td>
+      <td>Store non-sensitive configuration</td>
+    </tr>
+    <tr>
+      <td><strong>Data Security</strong></td>
+      <td>Encoded (not encrypted)</td>
+      <td>Plain text</td>
+    </tr>
+    <tr>
+      <td><strong>Example Use Cases</strong></td>
+      <td>Database credentials, API keys</td>
+      <td>Environment variables, config files</td>
+    </tr>
+    <tr>
+      <td><strong>Pod Consumption</strong></td>
+      <td>Environment variables, volumes</td>
+      <td>Environment variables, volumes</td>
+    </tr>
+    <tr>
+      <td><strong>Immutability</strong></td>
+      <td>Immutable after creation</td>
+      <td>Immutable after creation</td>
+    </tr>
+    <tr>
+      <td><strong>Encoding</strong></td>
+      <td>Base64 encoded</td>
+      <td>Plain text</td>
+    </tr>
+  </tbody>
+</table>
+
+# Kubernetes Monitoring
+
+- **Monitoring** is crucial in Kubernetes to keep track of how everything is running. When dealing with multiple clusters, manually watching each one becomes impractical. That's where monitoring platforms like Prometheus and Grafana come in.
+
+- **Prometheus:** Think of Prometheus as the detective. It asks questions about what's happening in the clusters.
+
+- **Grafana:** Now, imagine Grafana as the artist who takes the detective's findings and turns them into visual, easy-to-understand charts and graphs. It helps you see and understand what's going on.
+
+- So, Prometheus queries the clusters, Grafana makes the information look good, and together they help you keep everything in check.
+
+  <!-- Image -->
+__________________________________
 # Kubernetes Interview Questions and Answers
 
 ## 1. What is the difference between Docker and Kubernetes?

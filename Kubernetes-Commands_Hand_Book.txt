@@ -1,0 +1,71 @@
+Basic kubectl Commands
+
+# Display Kubernetes version
+kubectl version
+
+# List available commands
+kubectl
+
+# Display command help
+kubectl --help
+
+Cluster Management
+
+# Get cluster information
+kubectl cluster-info
+
+# View nodes in the cluster
+kubectl get nodes
+
+# Describe a node
+kubectl describe node [node_name]
+
+
+Pod Management
+
+# List pods
+kubectl get pods
+
+# List all pods in all namespaces
+kubectl get pods --all-namespaces
+
+# Describe a pod
+kubectl describe pod [pod_name]
+
+# Create a pod from a YAML file
+kubectl apply -f [pod.yaml]
+
+# Delete a pod
+kubectl delete pod [pod_name]
+
+Deployment Management
+
+# List deployments
+kubectl get deployments
+
+# Describe a deployment
+kubectl describe deployment [deployment_name]
+
+# Scale a deployment
+kubectl scale deployment [deployment_name] --replicas=[count]
+
+# Update a deployment
+kubectl set image deployment/[deployment_name] [container_name]=[new_image]
+
+# Roll back a deployment
+kubectl rollout undo deployment/[deployment_name]
+
+Service Management
+
+# List services
+kubectl get services
+
+# Describe a service
+kubectl describe service [service_name]
+
+# Create a service from a YAML file
+kubectl apply -f [service.yaml]
+
+# Delete a service
+kubectl delete service [service_name]
+
